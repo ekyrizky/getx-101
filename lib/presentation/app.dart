@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:getx_101/presentation/pages/detail_page.dart';
 import 'package:getx_101/presentation/pages/home_page.dart';
 
 class App extends StatelessWidget {
@@ -9,7 +10,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetCupertinoApp(
       initialRoute: '/',
-      home: HomePage(),
+      getPages: [
+        GetPage(name: '/', page: () => HomePage()),
+        GetPage(name: '/detail', page: () => DetailPage())
+      ],
     );
   }
 }

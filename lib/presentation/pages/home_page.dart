@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:getx_101/presentation/pages/detail_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -34,7 +33,7 @@ class HomePage extends StatelessWidget {
             title: Text(title),
             subtitle: Text(description),
             onTap: () {
-              Get.to(DetailPage(title: title, description: description));
+              Get.toNamed('/detail', arguments: [title, description]);
             },
           );
         },
