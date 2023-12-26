@@ -1,8 +1,9 @@
+import 'package:getx_101/domain/entities/article.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'article_model.g.dart';
 
 @JsonSerializable()
-class ArticleModel {
+class ArticleModel extends Article {
   String? author;
   String? title;
   String? description;
@@ -24,4 +25,18 @@ class ArticleModel {
   factory ArticleModel.fromJson(Map<String, dynamic> json) =>
       _$ArticleModelFromJson(json);
   Map<String, dynamic> toJson() => _$ArticleModelToJson(this);
+}
+
+class ArticlesModel extends Articles {
+  ArticlesModel({
+    required this.articles,
+  }) : super(articles: articles);
+
+  final List<ArticleModel> articles;
+
+  @override
+  factory ArticlesModel.fromJson(Map<String, dynamic> json) => ArticlesModel(
+        articles:
+            List.from(json["articles"].map((x) => ArticleModel.fromJson(x))),
+      );
 }
