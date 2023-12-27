@@ -6,7 +6,7 @@ import 'package:getx_101/domain/repositories/article_repository.dart';
 class ArticleRepositoryImpl implements ArticleRepository {
   @override
   Future<Articles> fetchArticle() async {
-    final response = await ArticleService.fetchArticles().request();
+    final response = await ArticleService().request();
     return ArticlesModel.fromJson(response);
   }
 }
